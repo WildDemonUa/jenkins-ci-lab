@@ -7,7 +7,7 @@ pipeline {
     environment {
         // Поміняйте APP_NAME та DOCKER_IMAGE_NAME на ваше імʼя та прізвище, відповідно.
         APP_NAME = 'Oleh'
-        DOCKER_IMAGE_NAME = 'Pleskach'
+        DOCKER_IMAGE_NAME = 'pleskach'
         // Необхідно для роботи в плейграунді
         GOCACHE="/home/jenkins/.cache/go-build/"
     }
@@ -63,7 +63,7 @@ pipeline {
                 stage('Build Docker Image') {
                     steps {
                         // Створення Docker образу з імʼям DOCKER_IMAGE_NAME і тегом BUILD_NUMBER та передача аргументу APP_NAME за допомогою флагу `--build-arg`
-                        sh "docker build -f Dockerfile --build-arg 'APP_NAME=${APP_NAME}' -t ${DOCKER_IMAGE_NAME} ."
+                        sh "docker build -f Dockerfile --build-arg 'APP_NAME=${APP_NAME}' -t ${DOCKER_IMAGE_NAME}:${BUILD_NUMBER} ."
                     }
                 }
             }
