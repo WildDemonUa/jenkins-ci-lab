@@ -16,7 +16,9 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Крок клонування репозиторію
-                git 'https://github.com/WildDemonUa/jenkins-ci-lab.git'
+                url: 'https://github.com/WildDemonUa/jenkins-ci-lab.git',
+                branch: "main",
+
             }
         }
 
